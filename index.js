@@ -1,5 +1,3 @@
-// import { Command } from "commander/esm.mjs";
-// const program = new Command();
 const { Command } = require("commander");
 const program = new Command();
 const {
@@ -8,12 +6,6 @@ const {
   removeContact,
   addContact,
 } = require("./contacts.js");
-// import {
-//   listContacts,
-//   getContactById,
-//   removeContact,
-//   addContact,
-// } from "./contacts.js";
 
 program
   .option("-a, --action <type>", "choose action")
@@ -31,25 +23,21 @@ function invokeAction({ action, id, name, email, phone }) {
   switch (action) {
     case "list":
       // ...
-      console.log("отработал list");
       listContacts();
       break;
 
     case "get":
       // ... id
-      console.log("отработал get");
       getContactById(id);
       break;
 
     case "add":
       // ... name email phone
-      console.log("отработал add");
       addContact(name, email, phone);
       break;
 
     case "remove":
       // ... id
-      console.log("отработал remove");
       removeContact(id);
       break;
 
@@ -59,9 +47,3 @@ function invokeAction({ action, id, name, email, phone }) {
 }
 
 invokeAction(argv);
-
-// const options = program.opts();
-// if (options.debug) console.log(options);
-// console.log("pizza details:");
-// if (options.small) console.log("- small pizza size");
-// if (options.pizzaType) console.log(`- ${options.pizzaType}`);
